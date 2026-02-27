@@ -1,0 +1,16 @@
+{
+  "frontend/src/index.css": "Global styles with premium light theme using OKLCH color tokens (gold, teal, success, danger), Google Fonts import for Cormorant Garamond and Inter, custom animation keyframes for scan line, pulse ring, fade-in-up, and dot blink effects.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with premium font families (Inter, Cormorant Garamond), gold/teal/success/danger color tokens mapped to OKLCH CSS variables, and custom premium shadow utilities.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations: useGetMembers, useAddMember, useSimulateVerification (with entry log invalidation), and useGetEntryLogs.",
+  "frontend/src/components/Navigation.tsx": "Fixed top navigation bar with exactly four links (Live Entry, Member Management, Entry Logs, Security & System Status), smooth scroll behavior, active section highlighting, and responsive mobile layout.",
+  "frontend/src/components/HeroSection.tsx": "Full-viewport hero section with lounge background image, dark gradient overlay, premium typography, animated badge, CTA buttons, and stats row.",
+  "frontend/src/components/FaceDetectionSection.tsx": "Face detection section with simulated camera feed card, CSS corner-bracket bounding box overlay, animated scan line, pulsing ring, and explanatory feature list.",
+  "frontend/src/components/AIProcessingSection.tsx": "Three-step AI processing workflow with animated active step cycling, progress bars, icons, technical detail badges, and step connector line.",
+  "frontend/src/components/VerificationResultSection.tsx": "Verification result section with face hash input, Run Verification button calling the backend, animated result panel showing passenger details and green/red access status badge.",
+  "frontend/src/components/AccessConfirmationSection.tsx": "Access confirmation card that conditionally renders granted (green, checkmark, welcome message) or denied (red, X icon, restriction message) state based on the verification result prop.",
+  "frontend/src/components/MemberManagementSection.tsx": "Member management section with add-member form (name, tier, face hash) calling the backend addMember mutation, and a live member list with tier badges and face hash display.",
+  "frontend/src/components/EntryLogsSection.tsx": "Entry logs section displaying reverse-chronological verification history with timestamp, passenger name, confidence score bar, and granted/denied status from the backend.",
+  "frontend/src/components/SystemStatusSection.tsx": "System health dashboard with six status indicator cards (face engine, database, camera, network, blockchain, activity monitor), overall status banner, and refresh functionality.",
+  "frontend/src/components/Footer.tsx": "Premium dark footer with brand logo, copyright year, caffeine.ai attribution with UTM tracking, and system status indicator.",
+  "frontend/src/App.tsx": "Root application component composing all eight sections (hero, face detection, AI processing, verification, member management, entry logs, system status) with navigation and footer."
+}

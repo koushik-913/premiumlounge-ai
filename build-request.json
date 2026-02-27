@@ -1,0 +1,283 @@
+{
+  "kind": "build_request",
+  "title": "Premium Airport Lounge Face Recognition Entry System",
+  "projectName": "Lounge AI Access",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement a backend actor that stores and manages member records with fields: name, membership tier (e.g., Gold, Platinum, Diamond), and a mock facial feature hash. Expose query and update functions: addMember, getMembers, getMemberById, and a simulateVerification function that accepts a mock image hash and returns a verification result object (passengerName, membershipTier, confidenceScore, verificationTime, accessGranted).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Member Management",
+          "Passenger Name",
+          "Membership Tier",
+          "Confidence Score",
+          "Verification Time"
+        ]
+      },
+      "acceptanceCriteria": [
+        "addMember stores a new member with name and membership tier",
+        "getMembers returns the full member list",
+        "simulateVerification returns a structured result with all required fields",
+        "accessGranted is a Bool reflecting whether a match was found"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Build a top navigation bar containing exactly four links: 'Live Entry', 'Member Management', 'Entry Logs', and 'Security & System Status'. The nav bar should be fixed to the top, use a white or soft-grey background, subtle bottom shadow, and smooth scroll to the corresponding page section on click. Do not include any other navigation items.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create a simple top navigation bar containing ONLY: Live Entry, Member Management, Entry Logs, Security & System Status",
+          "Do NOT add extra buttons"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Exactly four navigation links are visible",
+        "Clicking each link smoothly scrolls to the correct section",
+        "Nav bar remains fixed during scroll",
+        "No booking, login, or travel-related links are present"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a full-width Hero Section (Section 1) at the top of the homepage. Display the title 'Premium Lounge AI – Face Recognition Entry System', a short professional subtitle describing the system, and use the generated lounge hero background image as the section background. Overlay a subtle dark gradient for text legibility. Typography should be elegant and spacious.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Section 1 – Hero Section",
+          "Title: 'Premium Lounge AI – Face Recognition Entry System'",
+          "Airport lounge themed background"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero section fills the viewport width",
+        "Title and subtitle are clearly readable over the background",
+        "Background image is the generated lounge hero asset",
+        "Section has a dark gradient overlay"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create a Face Detection Section (Section 2) with a centered card containing a simulated camera feed area (static placeholder with a face detection bounding-box frame overlay drawn with CSS or SVG), a pulsing scan animation around the frame, and explanatory text describing the face recognition capture process.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Section 2 – Face Detection",
+          "Camera interface displayed inside a clean card",
+          "Face detection frame visualization"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Card is centered with subtle shadow",
+        "Bounding-box frame overlay is visible inside the camera area",
+        "Pulsing scan animation runs continuously",
+        "Explanatory text is present below or beside the camera card"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create an AI Processing Section (Section 3) displaying a three-step workflow using structured information blocks or a stepper component: Step 1 – 'Capturing Image', Step 2 – 'Extracting Facial Features', Step 3 – 'Matching Premium Member Database'. Each step should have an icon, label, and a short description. Include a subtle animated progress indicator between steps.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Section 3 – AI Processing",
+          "Capturing Image",
+          "Extracting Facial Features",
+          "Matching Premium Member Database",
+          "Use structured information blocks"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All three steps are displayed in order",
+        "Each step has a distinct icon, label, and description",
+        "A progress or connector line/animation links the steps",
+        "Layout is clean and horizontally or vertically structured"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create a Verification Result Section (Section 4) that calls simulateVerification from the backend and displays an information panel with: Passenger Name, Membership Tier, Confidence Score, and Verification Time. Below the panel, show a large status badge: green 'Access Granted' or red 'Access Denied' based on the result. Include a 'Run Verification' button that triggers the backend call and animates the result reveal.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Section 4 – Verification Result",
+          "Passenger Name",
+          "Membership Tier",
+          "Confidence Score",
+          "Verification Time",
+          "Green 'Access Granted'",
+          "Red 'Access Denied'"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All four data fields are displayed in a clean information panel",
+        "Status badge correctly renders green for granted and red for denied",
+        "'Run Verification' button triggers the backend simulateVerification call",
+        "Result animates into view after the call completes"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create an Access Confirmation Section (Section 5) that shows a clean confirmation card with the message 'Access Authorized – Welcome to Premium Lounge' using premium typography. Include a checkmark icon and a soft green accent. This section should be conditionally styled (confirmation vs. denial state) based on the verification result from Section 4.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Section 5 – Access Confirmation",
+          "'Access Authorized – Welcome to Premium Lounge'"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Confirmation card displays the required message",
+        "Checkmark icon is visible on granted state",
+        "Card style changes to a denial state (e.g., red accent, X icon) when access is denied",
+        "Section is visually distinct and prominent"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Create a Member Management section (accessible via nav and as a full page section) that lists existing members in a clean table or card grid, and provides a form to add a new member (name, membership tier). The form should call the addMember backend function and refresh the list on success.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Member Management"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Member list renders all stored members with name and tier",
+        "Add member form has name and tier fields",
+        "Submitting the form calls addMember and refreshes the list",
+        "Empty state message is shown when no members exist"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Create an Entry Logs section (accessible via nav) that displays a chronological log of verification attempts. Each log entry should show timestamp, passenger name (or 'Unknown'), result (Granted / Denied), and confidence score. Log data should be stored in the backend and populated on each simulateVerification call.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Entry Logs"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Entry logs list is displayed in reverse-chronological order",
+        "Each entry shows timestamp, name, result, and confidence score",
+        "A new log entry is created each time simulateVerification is called",
+        "Empty state message is shown when no logs exist"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Create a Security & System Status section (accessible via nav) that displays a system health dashboard with static but realistic status indicators: Face Recognition Engine (Online), Database Connection (Secure), Camera Feed (Active), Last System Check (timestamp). Use green/amber/red status dots for each indicator.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Security & System Status"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least four system status indicators are displayed",
+        "Each indicator has a colored status dot (green = OK)",
+        "Last System Check shows a realistic timestamp",
+        "Layout is clean and dashboard-like"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Apply a consistent premium light theme across the entire application: white or soft-grey (#F5F5F7 range) backgrounds, deep charcoal or near-black typography, gold or muted teal as the primary accent color, generous whitespace, elegant sans-serif typography (e.g., Inter or similar), subtle card shadows, and smooth CSS scroll-behavior. Minimal micro-animations on hover and section reveal. No blue/purple color palette.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Light theme with white or soft grey background",
+          "Elegant airline-style layout",
+          "Spacious sections with strong alignment",
+          "Professional typography",
+          "Smooth scrolling transitions",
+          "Minimal animations",
+          "Subtle shadows and soft depth effects",
+          "The interface should feel calm, premium, and trustworthy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All sections use the defined light theme palette",
+        "Gold or muted teal accent is consistently applied to CTAs, badges, and highlights",
+        "Smooth scroll is active for all nav links",
+        "Cards have subtle box shadows",
+        "Typography is elegant and hierarchically consistent"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Render the generated hero background image (lounge-hero.dim_1920x1080.png) as a static asset in the Hero Section background.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Airport lounge themed background"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero section uses lounge-hero.dim_1920x1080.png as its background image",
+        "Image is served from frontend/public/assets/generated",
+        "Image covers the full hero area with object-fit: cover"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not include any airline booking, travel, flight search, or login features",
+    "Navigation must contain exactly four items: Live Entry, Member Management, Entry Logs, Security & System Status",
+    "Do not use blue or purple in the color palette",
+    "All Motoko logic must remain in the single main actor file"
+  ],
+  "nonGoals": [
+    "Real camera or biometric integration",
+    "Actual facial recognition AI processing",
+    "User authentication or Internet Identity",
+    "Airline booking or travel-related features",
+    "Mobile app or native application",
+    "External database or third-party API integration"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Wide panoramic airport premium lounge interior — warm ambient lighting, floor-to-ceiling windows with runway view, plush seating, marble surfaces, soft gold and white tones, no people, ultra-clean and luxurious atmosphere (lounge-hero.dim_1920x1080.png)"
+    ],
+    "edits": []
+  }
+}

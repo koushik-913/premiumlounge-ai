@@ -1,0 +1,101 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T11:32:45.424Z",
+  "summary": "The implementation covers the vast majority of requirements. All backend functions (REQ-1), navigation (REQ-2), hero section (REQ-3), face detection (REQ-4), AI processing (REQ-5), verification result (REQ-6), access confirmation (REQ-7), member management (REQ-8), entry logs (REQ-9), system status (REQ-10), and premium theme (REQ-11) are present. The hero image path matches REQ-12. A few specific acceptance criteria have gaps or concerns worth flagging.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "addMember requires admin permission per the backend implementation, but the frontend calls it without authentication context — anonymous callers will likely fail the admin check, meaning the AC 'addMember stores a new member with name and membership tier' may not work in practice for unauthenticated users.",
+      "reason": "backend/main.mo gates addMember behind AccessControl.hasPermission(accessControlState, caller, #admin), but the frontend useActor hook creates an anonymous actor for unauthenticated users. This contradicts the non-goal of 'no user authentication' and may prevent the add-member form from working.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/components/MemberManagementSection.tsx"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "requirement": "Entry logs should be stored in the backend and populated on each simulateVerification call. The backend main.mo is truncated before getEntryLogs and the log-writing logic inside simulateVerification are visible, so backend storage AC cannot be confirmed.",
+      "reason": "The backend file is truncated before getEntryLogs and log-writing logic in simulateVerification are visible. The frontend hook references actor.getEntryLogs() but its backend implementation cannot be confirmed from the diff.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/components/EntryLogsSection.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity authentication integration including InternetIdentityProvider, AuthClient, login/clear functions, and identity-based actor creation.",
+      "reason": "The build request explicitly lists 'User authentication or Internet Identity' as a non-goal, yet the implementation includes a full InternetIdentityProvider wrapping the app, useInternetIdentity hook, and actor creation tied to identity.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/main.tsx"
+      ]
+    },
+    {
+      "description": "Access control and authorization system (MixinAuthorization, AccessControl) with admin/user permission gating on all backend functions.",
+      "reason": "The build request does not request any authorization or role-based access control system. The backend imports and uses an authorization mixin that gates addMember to admins and other functions to users, which was not requested.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "User profile management functions (getCallerUserProfile, getUserProfile, saveCallerUserProfile) and userProfiles state in the backend.",
+      "reason": "No user profile management was requested in the build request. These functions and state are extra features not specified.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "A face hash input field exposed in the Member Management add-member form.",
+      "reason": "REQ-8 specifies only name and membership tier fields in the add member form. The implementation adds a third Face Hash input field that was not requested.",
+      "evidence": [
+        "frontend/src/components/MemberManagementSection.tsx"
+      ]
+    },
+    {
+      "description": "caffeine.ai attribution link with UTM tracking parameters in the Footer component.",
+      "reason": "No footer or attribution link was specified in the build request requirements.",
+      "evidence": [
+        "frontend/src/components/Footer.tsx"
+      ]
+    },
+    {
+      "description": "Additional system status indicators beyond the four specified: Network Connectivity, ICP Blockchain Node, and System Activity Monitor.",
+      "reason": "REQ-10 specifies exactly four indicators: Face Recognition Engine, Database Connection, Camera Feed, and Last System Check. The implementation adds three additional indicators beyond what was specified.",
+      "evidence": [
+        "frontend/src/components/SystemStatusSection.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.78,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AIProcessingSection.tsx",
+    "frontend/src/components/AccessConfirmationSection.tsx",
+    "frontend/src/components/EntryLogsSection.tsx",
+    "frontend/src/components/FaceDetectionSection.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/HeroSection.tsx",
+    "frontend/src/components/MemberManagementSection.tsx",
+    "frontend/src/components/Navigation.tsx",
+    "frontend/src/components/SystemStatusSection.tsx",
+    "frontend/src/components/VerificationResultSection.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

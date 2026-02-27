@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Premium Airport Lounge Face Recognition Entry System website with airline-inspired premium light theme, scroll-based sections for hero, face detection, AI processing, verification result, and access confirmation.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Wide panoramic airport premium lounge interior — warm ambient lighting, floor-to-ceiling windows with runway view, plush seating, marble surfaces, soft gold and white tones, no people, ultra-clean and luxurious atmosphere (lounge-hero.dim_1920x1080.png)",
+  "existing_features": [
+    {
+      "id": "feature-build-a-top-navigation-bar-containing-exactly-four-links-live-entry-member-management-entry-logs-and-security-system-status-the-nav-bar-should-be-fixed-to-the-top-use-a-white-or-soft-grey-background-subtle-bottom-shadow-and-smooth-scroll-to-the-corresponding-page-section-on-click-do-not-include-any-other-navigation-items",
+      "title": "Build a top navigation bar containing exactly four links: 'Live Entry', 'Member Management', 'Entry Logs', and 'Security & System Status'. The nav bar should be fixed to the top, use a white or soft-grey background, subtle bottom shadow, and smooth scroll to the corresponding page section on click. Do not include any other navigation items.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-full-width-hero-section-section-1-at-the-top-of-the-homepage-display-the-title-premium-lounge-ai-face-recognition-entry-system-a-short-professional-subtitle-describing-the-system-and-use-the-generated-lounge-hero-background-image-as-the-section-background-overlay-a-subtle-dark-gradient-for-text-legibility-typography-should-be-elegant-and-spacious",
+      "title": "Create a full-width Hero Section (Section 1) at the top of the homepage. Display the title 'Premium Lounge AI – Face Recognition Entry System', a short professional subtitle describing the system, and use the generated lounge hero background image as the section background. Overlay a subtle dark gradient for text legibility. Typography should be elegant and spacious.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-face-detection-section-section-2-with-a-centered-card-containing-a-simulated-camera-feed-area-static-placeholder-with-a-face-detection-bounding-box-frame-overlay-drawn-with-css-or-svg-a-pulsing-scan-animation-around-the-frame-and-explanatory-text-describing-the-face-recognition-capture-process",
+      "title": "Create a Face Detection Section (Section 2) with a centered card containing a simulated camera feed area (static placeholder with a face detection bounding-box frame overlay drawn with CSS or SVG), a pulsing scan animation around the frame, and explanatory text describing the face recognition capture process.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-ai-processing-section-section-3-displaying-a-three-step-workflow-using-structured-information-blocks-or-a-stepper-component-step-1-capturing-image-step-2-extracting-facial-features-step-3-matching-premium-member-database-each-step-should-have-an-icon-label-and-a-short-description-include-a-subtle-animated-progress-indicator-between-steps",
+      "title": "Create an AI Processing Section (Section 3) displaying a three-step workflow using structured information blocks or a stepper component: Step 1 – 'Capturing Image', Step 2 – 'Extracting Facial Features', Step 3 – 'Matching Premium Member Database'. Each step should have an icon, label, and a short description. Include a subtle animated progress indicator between steps.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-verification-result-section-section-4-that-calls-simulateverification-from-the-backend-and-displays-an-information-panel-with-passenger-name-membership-tier-confidence-score-and-verification-time-below-the-panel-show-a-large-status-badge-green-access-granted-or-red-access-denied-based-on-the-result-include-a-run-verification-button-that-triggers-the-backend-call-and-animates-the-result-reveal",
+      "title": "Create a Verification Result Section (Section 4) that calls simulateVerification from the backend and displays an information panel with: Passenger Name, Membership Tier, Confidence Score, and Verification Time. Below the panel, show a large status badge: green 'Access Granted' or red 'Access Denied' based on the result. Include a 'Run Verification' button that triggers the backend call and animates the result reveal.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-access-confirmation-section-section-5-that-shows-a-clean-confirmation-card-with-the-message-access-authorized-welcome-to-premium-lounge-using-premium-typography-include-a-checkmark-icon-and-a-soft-green-accent-this-section-should-be-conditionally-styled-confirmation-vs-denial-state-based-on-the-verification-result-from-section-4",
+      "title": "Create an Access Confirmation Section (Section 5) that shows a clean confirmation card with the message 'Access Authorized – Welcome to Premium Lounge' using premium typography. Include a checkmark icon and a soft green accent. This section should be conditionally styled (confirmation vs. denial state) based on the verification result from Section 4.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-member-management-section-accessible-via-nav-and-as-a-full-page-section-that-lists-existing-members-in-a-clean-table-or-card-grid-and-provides-a-form-to-add-a-new-member-name-membership-tier-the-form-should-call-the-addmember-backend-function-and-refresh-the-list-on-success",
+      "title": "Create a Member Management section (accessible via nav and as a full page section) that lists existing members in a clean table or card grid, and provides a form to add a new member (name, membership tier). The form should call the addMember backend function and refresh the list on success.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-entry-logs-section-accessible-via-nav-that-displays-a-chronological-log-of-verification-attempts-each-log-entry-should-show-timestamp-passenger-name-or-unknown-result-granted-denied-and-confidence-score-log-data-should-be-stored-in-the-backend-and-populated-on-each-simulateverification-call",
+      "title": "Create an Entry Logs section (accessible via nav) that displays a chronological log of verification attempts. Each log entry should show timestamp, passenger name (or 'Unknown'), result (Granted / Denied), and confidence score. Log data should be stored in the backend and populated on each simulateVerification call.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-security-system-status-section-accessible-via-nav-that-displays-a-system-health-dashboard-with-static-but-realistic-status-indicators-face-recognition-engine-online-database-connection-secure-camera-feed-active-last-system-check-timestamp-use-green-amber-red-status-dots-for-each-indicator",
+      "title": "Create a Security & System Status section (accessible via nav) that displays a system health dashboard with static but realistic status indicators: Face Recognition Engine (Online), Database Connection (Secure), Camera Feed (Active), Last System Check (timestamp). Use green/amber/red status dots for each indicator.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-consistent-premium-light-theme-across-the-entire-application-white-or-soft-grey-f5f5f7-range-backgrounds-deep-charcoal-or-near-black-typography-gold-or-muted-teal-as-the-primary-accent-color-generous-whitespace-elegant-sans-serif-typography-e-g-inter-or-similar-subtle-card-shadows-and-smooth-css-scroll-behavior-minimal-micro-animations-on-hover-and-section-reveal-no-blue-purple-color-palette",
+      "title": "Apply a consistent premium light theme across the entire application: white or soft-grey (#F5F5F7 range) backgrounds, deep charcoal or near-black typography, gold or muted teal as the primary accent color, generous whitespace, elegant sans-serif typography (e.g., Inter or similar), subtle card shadows, and smooth CSS scroll-behavior. Minimal micro-animations on hover and section reveal. No blue/purple color palette.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-the-generated-hero-background-image-lounge-hero-dim-1920x1080-png-as-a-static-asset-in-the-hero-section-background",
+      "title": "Render the generated hero background image (lounge-hero.dim_1920x1080.png) as a static asset in the Hero Section background.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Implement a backend actor that stores and manages member records with fields: name, membership tier (e.g., Gold, Platinum, Diamond), and a mock facial feature hash. Expose query and update functions: addMember, getMembers, getMemberById, and a simulateVerification function that accepts a mock image hash and returns a verification result object (passengerName, membershipTier, confidenceScore, verificationTime, accessGranted).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "PremiumLounge AI",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
